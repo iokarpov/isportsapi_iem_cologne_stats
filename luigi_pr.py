@@ -7,6 +7,8 @@ import datetime as dt
 import plotly.graph_objects as go
 import time
 
+from api_keys import api_key
+
 def ms_to_date(ms):
     ans = pd.DataFrame()
     for i in range(len(ms)):
@@ -25,7 +27,7 @@ class create_pdf_with_IEM_Cologne(Task):
         league_id = 1925
 
         params_matchs = {
-            'api_key' : "a1vWBQKvgRuiHUX6",
+            'api_key' : api_key,
             'offset' : '0',
             'limit' : '100'
         }
@@ -47,7 +49,7 @@ class create_pdf_with_IEM_Cologne(Task):
         for j in teams_id:
             if j != 0:
                 params_team_j = {
-                    'api_key' : "a1vWBQKvgRuiHUX6",
+                    'api_key' : api_key,
                     'team_id' : j
                 }
 
@@ -61,7 +63,7 @@ class create_pdf_with_IEM_Cologne(Task):
 
                 for i in df_players.player_id.array:
                     params_player_i = {
-                        'api_key' : "a1vWBQKvgRuiHUX6",
+                        'api_key' : api_key,
                         'player_id' : i
                     }
 
